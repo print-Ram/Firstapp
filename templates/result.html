@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Data Result</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-10">
+                <div class="card shadow-lg">
+                    <div class="card-header bg-success text-white">
+                        <h3>Stock Data for {{ stockdata }}</h3>
+                    </div>
+                    <div class="card-body">
+                        <h5>Stock Data from <a href="{{ stock_url }}" target="_blank">{{ stock_url }}</a></h5>
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover table-striped" style="border-collapse: collapse; width: 100%;">
+                                <thead>
+                                    <tr>
+                                        <!-- Adjust table headers based on data -->
+                                        <th>Date</th>
+                                        <th>Open</th>
+                                        <th>High</th>
+                                        <th>Low</th>
+                                        <th>Close</th>
+                                        <th>Volume</th>
+                                        <th>Dividends</th>
+                                        <th>Stock Splits</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {{ table|safe }} <!-- This will render the table rows with the actual stock data -->
+                                </tbody>
+                            </table>
+                        </div>
+                        <a href="/download_csv/{{ stockdata }}" class="btn btn-outline-success mt-3">Download CSV</a>
+                        <br><br>
+                        <a href="/" class="btn btn-link">Go Back</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+/* Global Styling */
+body {
+  background:linear-gradient(30deg, rgba(184, 240, 93, 0.692),rgba(118, 118, 234, 0.753));
+  background-size: 100% 100vh;
+  font-family:'Times New Roman', Times, serif;
+}
+
